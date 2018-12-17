@@ -1,0 +1,12 @@
+
+sqlserver to hive 
+
+sqoop import --connect "jdbc:sqlserver://192.168.10.88;database=DWMDemo" --username sa --password dwhadmin@123 --table UploadFile_dtls --hive-import --hive-database ARCCC_10_88 --hive-table DWMDemo_db_UploadFile_dtls -m 1  --delete-target-dir
+
+hive to mysql
+sqoop-export --connect jdbc:mysql://192.168.10.151:3306/EHR_aggregated --username datamaster --password datamaster@2K17 --table fact_emp_leave_balance --export-dir /apps/hive/warehouse/ehr_10_59.db/arghr_db_emp_leave_balance/  --input-fields-terminated-by "\001"  --input-null-string "\\\N" --input-null-non-string "\\\N"
+
+
+
+
+
